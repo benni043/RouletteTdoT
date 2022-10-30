@@ -1,0 +1,15 @@
+img {
+  width: 70px;
+}
+
+span {
+  position: absolute;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
