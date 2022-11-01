@@ -12,7 +12,7 @@ export class ValueButtonComponent implements OnInit {
 
   isClicked: boolean = false;
 
-  @Input() enoughMoney: (() => boolean) | undefined;
+  @Input() canPlace: (() => boolean) | undefined;
 
   @Input() events: Observable<void> | undefined;
 
@@ -24,18 +24,19 @@ export class ValueButtonComponent implements OnInit {
     })
   }
 
-  img1: string = "/assets/images/00.png";
-  img5: string = "/assets/images/20.png";
-  img10: string = "/assets/images/01.png";
-  img25: string = "/assets/images/11.png";
-  img100: string = "/assets/images/21.png";
-  img500: string = "/assets/images/02.png";
-  img1000: string = "/assets/images/12.png";
+  img1: string = "/assets/images/j1.png";
+  img5: string = "/assets/images/j5.png";
+  img10: string = "/assets/images/j10.png";
+  img25: string = "/assets/images/j25.png";
+  img100: string = "/assets/images/j100.png";
+  img500: string = "/assets/images/j500.png";
+  img1000: string = "/assets/images/j1000.png";
 
   img: string = this.img1;
 
+
   onClickFunc() {
-    if (this.enoughMoney!()) {
+    if (this.canPlace!()) {
       this.onClick.emit();
       this.isClicked = true;
 
@@ -62,10 +63,8 @@ export class ValueButtonComponent implements OnInit {
           this.img = this.img1000;
           break
       }
-
-
     } else {
-      alert("zu wenig geld");
+      alert("Spiel läuft gerade | Zu wenig Guthaben");
     }
   }
 

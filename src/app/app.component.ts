@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {ValueButtonComponent} from "./value-button/value-button.component";
+import {Component, Input} from '@angular/core';
 import {Subject} from "rxjs";
 
 @Component({
@@ -8,8 +7,6 @@ import {Subject} from "rxjs";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Roulette';
-
   row1: number[] = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
   row2: number[] = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
   row3: number[] = [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34];
@@ -29,9 +26,11 @@ export class AppComponent {
 
   payout: { betList: number[], payoutFactor: number, use: number }[] = [];
 
-  enoughMoney = () => {
-    return (this.newMoney >= this.value);
+  canPlace = () => {
+    return (this.newMoney >= this.value && !this.running);
   }
+
+  running: boolean = false;
 
   onclick(betList: number[], payoutFactor: number, use: number): void {
     this.newMoney -= use;
@@ -39,28 +38,36 @@ export class AppComponent {
   }
 
   newMoney: number = 1000;
-
-  wonNum = 5;
-
   value: number = 1;
 
-  won(): void {
+  sum: number = 0;
+
+  won(winNum: number): void {
+    this.sum = 0;
+
     for (let payoutElement of this.payout) {
 
-      if (payoutElement.betList.includes(this.wonNum)) {
+      if (payoutElement.betList.includes(winNum)) {
         this.newMoney += payoutElement.use * (payoutElement.payoutFactor + 1);
+        this.sum += payoutElement.use * (payoutElement.payoutFactor + 1);
+      } else {
+        this.sum -= payoutElement.use;
       }
+
     }
 
     this.reset();
   }
 
-  reset(): void {
-    this.payout = [];
-    this.resetSubject.next();
-    this.value = 1;
-  }
-
   resetSubject: Subject<void> = new Subject<void>();
 
+  reset(): void {
+    this.value = 1;
+    this.running = false;
+
+    setTimeout(() => {
+      this.resetSubject.next();
+      this.payout = [];
+    }, 10000);
+  }
 }

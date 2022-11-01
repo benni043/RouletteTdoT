@@ -1,217 +1,532 @@
 <div id="all">
-  <div id="rouletteField">
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([0,2,3], 8, value)" class="threeExtra threeExtra1"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([0,1,2], 8, value)" class="threeExtra threeExtra2"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([0,1], 17, value)" class="twoExtra twoExtra1"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([0,2], 17, value)" class="twoExtra twoExtra2"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([0,3], 17, value)" class="twoExtra twoExtra3"></app-value-button>
+  <div id="flex">
+    <app-wheel (running)="running = true" (winNum)="won($event)"></app-wheel>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([0], 35, value)" id="zero">0</app-value-button>
+    <div id="rouletteField">
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([0,2,3], 8, value)" class="threeExtra threeExtra1"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([0,1,2], 8, value)" class="threeExtra threeExtra2"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([0,1], 17, value)" class="twoExtra twoExtra1"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([0,2], 17, value)" class="twoExtra twoExtra2"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([0,3], 17, value)" class="twoExtra twoExtra3"></app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([1,2,3,4,5,6], 5, value)" class="six six1"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([3,2], 17, value)" class="twoVert twoVert1"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([3,6], 17, value)" class="two two1"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([2,3,5,6], 8, value)" class="four four1"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([3], 35, value)" class=" red" id="a3">3</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([0], 35, value)" id="zero">0
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([4,5,6,7,8,9], 5, value)" class="six six2"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([2,1], 17, value)" class="twoVert twoVert2"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([2,5], 17, value)" class="two two2"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([1,2,4,5], 8, value)" class="four four2"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([6], 35, value)" class=" black" id="a6">6</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([1,2,3,4,5,6], 5, value)" class="six six1"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([3,2], 17, value)" class="twoVert twoVert1"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([3,6], 17, value)" class="two two1"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([2,3,5,6], 8, value)" class="four four1"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([3], 35, value)" class=" red" id="a3">3
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([7,8,9,10,11,12], 5, value)" class="six six3"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([6,5], 17, value)" class="twoVert twoVert3"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([1,4], 17, value)" class="two two3"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([5,6,8,9], 8, value)" class="four four3"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([9], 35, value)" class=" red" id="a9">9</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([4,5,6,7,8,9], 5, value)" class="six six2"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([2,1], 17, value)" class="twoVert twoVert2"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([2,5], 17, value)" class="two two2"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([1,2,4,5], 8, value)" class="four four2"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([6], 35, value)" class=" black" id="a6">6
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([10,11,12,13,14,15], 5, value)" class="six six4"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([4,5], 17, value)" class="twoVert twoVert4"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([6,9], 17, value)" class="two two4"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([4,5,7,8], 8, value)" class="four four4"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([12], 35, value)" class=" red" id="a12">12</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([7,8,9,10,11,12], 5, value)" class="six six3"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([6,5], 17, value)" class="twoVert twoVert3"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([1,4], 17, value)" class="two two3"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([5,6,8,9], 8, value)" class="four four3"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([9], 35, value)" class=" red" id="a9">9
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([13,14,15,16,17,18], 5, value)" class="six six5"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([8,9], 17, value)" class="twoVert twoVert5"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([5,8], 17, value)" class="two two5"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([8,9,11,12], 8, value)" class="four four5"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([15], 35, value)" class=" black" id="a15">15</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([10,11,12,13,14,15], 5, value)" class="six six4"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([4,5], 17, value)" class="twoVert twoVert4"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([6,9], 17, value)" class="two two4"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([4,5,7,8], 8, value)" class="four four4"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([12], 35, value)" class=" red" id="a12">12
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([16,17,18,19,20,21], 5, value)" class="six six6"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([7,8], 17, value)" class="twoVert twoVert6"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([4,7], 17, value)" class="two two6"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([7,8,10,11], 8, value)" class="four four6"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([18], 35, value)" class=" red" id="a18">18</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([13,14,15,16,17,18], 5, value)" class="six six5"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([8,9], 17, value)" class="twoVert twoVert5"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([5,8], 17, value)" class="two two5"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([8,9,11,12], 8, value)" class="four four5"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([15], 35, value)" class=" black" id="a15">15
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([19,20,21,22,23,24], 5, value)" class="six six7"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([11,12], 17, value)" class="twoVert twoVert7"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([9,12], 17, value)" class="two two7"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([11,12,14,15], 8, value)" class="four four7"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([21], 35, value)" class=" red" id="a21">21</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([16,17,18,19,20,21], 5, value)" class="six six6"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([7,8], 17, value)" class="twoVert twoVert6"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([4,7], 17, value)" class="two two6"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([7,8,10,11], 8, value)" class="four four6"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([18], 35, value)" class=" red" id="a18">18
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([22,23,24,25,26,27], 5, value)" class="six six8"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([10,11], 17, value)" class="twoVert twoVert8"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([8,11], 17, value)" class="two two8"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([10,11,13,14], 8, value)" class="four four8"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([24], 35, value)" class=" black" id="a24">24</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([19,20,21,22,23,24], 5, value)" class="six six7"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([11,12], 17, value)" class="twoVert twoVert7"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([9,12], 17, value)" class="two two7"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([11,12,14,15], 8, value)" class="four four7"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([21], 35, value)" class=" red" id="a21">21
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([25,26,27,28,29,30], 5, value)" class="six six9"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([14,15], 17, value)" class="twoVert twoVert9"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([7,10], 17, value)" class="two two9"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([14,15,17,18], 8, value)" class="four four9"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([27], 35, value)" class=" red" id="a27">27</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([22,23,24,25,26,27], 5, value)" class="six six8"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([10,11], 17, value)" class="twoVert twoVert8"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([8,11], 17, value)" class="two two8"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([10,11,13,14], 8, value)" class="four four8"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([24], 35, value)" class=" black" id="a24">24
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([28,29,30,31,32,33], 5, value)" class="six six10"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([10,11], 17, value)" class="twoVert twoVert10"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([12,15], 17, value)" class="two two10"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([13,14,16,17], 8, value)" class="four four10"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([30], 35, value)" class=" red" id="a30">30</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([25,26,27,28,29,30], 5, value)" class="six six9"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([14,15], 17, value)" class="twoVert twoVert9"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([7,10], 17, value)" class="two two9"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([14,15,17,18], 8, value)" class="four four9"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([27], 35, value)" class=" red" id="a27">27
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([31,32,33,34,35,36], 5, value)" class="six six11"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([17,18], 17, value)" class="twoVert twoVert11"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([11,14], 17, value)" class="two two11"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([17,18,20,21], 8, value)" class="four four11"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([33], 35, value)" class=" black" id="a33">33</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([28,29,30,31,32,33], 5, value)" class="six six10"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([10,11], 17, value)" class="twoVert twoVert10"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([12,15], 17, value)" class="two two10"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([13,14,16,17], 8, value)" class="four four10"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([30], 35, value)" class=" red" id="a30">30
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([16,17], 17, value)" class="twoVert twoVert12"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([10,13], 17, value)" class="two two12"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([16,17,19,20], 8, value)" class="four four12"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([36], 35, value)" class=" red" id="a36">36</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([31,32,33,34,35,36], 5, value)" class="six six11"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([17,18], 17, value)" class="twoVert twoVert11"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([11,14], 17, value)" class="two two11"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([17,18,20,21], 8, value)" class="four four11"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([33], 35, value)" class=" black" id="a33">33
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([20,21], 17, value)" class="twoVert twoVert13"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([15,18], 17, value)" class="two two13"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([23,24,26,27], 8, value)" class="four four13"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([2], 35, value)" class=" black" id="a2">2</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([16,17], 17, value)" class="twoVert twoVert12"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([10,13], 17, value)" class="two two12"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([16,17,19,20], 8, value)" class="four four12"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([36], 35, value)" class=" red" id="a36">36
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([19,20], 17, value)" class="twoVert twoVert14"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([14,17], 17, value)" class="two two14"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([22,23,25,26], 8, value)" class="four four14"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([5], 35, value)" class=" red" id="a5">5</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([20,21], 17, value)" class="twoVert twoVert13"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([15,18], 17, value)" class="two two13"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([23,24,26,27], 8, value)" class="four four13"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([2], 35, value)" class=" black" id="a2">2
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([23,24], 17, value)" class="twoVert twoVert15"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([13,16], 17, value)" class="two two15"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([26,27,29,30], 8, value)" class="four four15"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([8], 35, value)" class=" black" id="a8">8</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([19,20], 17, value)" class="twoVert twoVert14"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([14,17], 17, value)" class="two two14"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([22,23,25,26], 8, value)" class="four four14"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([5], 35, value)" class=" red" id="a5">5
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([22,23], 17, value)" class="twoVert twoVert16"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([18,21], 17, value)" class="two two16"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([25,26,28,29], 8, value)" class="four four16"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([11], 35, value)" class=" black" id="a11">11</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([23,24], 17, value)" class="twoVert twoVert15"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([13,16], 17, value)" class="two two15"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([26,27,29,30], 8, value)" class="four four15"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([8], 35, value)" class=" black" id="a8">8
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([26,27], 17, value)" class="twoVert twoVert17"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([17,20], 17, value)" class="two two17"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([29,30,32,33], 8, value)" class="four four17"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([14], 35, value)" class=" red" id="a14">14</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([22,23], 17, value)" class="twoVert twoVert16"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([18,21], 17, value)" class="two two16"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([25,26,28,29], 8, value)" class="four four16"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([11], 35, value)" class=" black" id="a11">11
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([25,26], 17, value)" class="twoVert twoVert18"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([16,19], 17, value)" class="two two18"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([28,29,31,32], 8, value)" class="four four18"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([17], 35, value)" class=" black" id="a17">17</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([26,27], 17, value)" class="twoVert twoVert17"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([17,20], 17, value)" class="two two17"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([29,30,32,33], 8, value)" class="four four17"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([14], 35, value)" class=" red" id="a14">14
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([29,30], 17, value)" class="twoVert twoVert19"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([21,24], 17, value)" class="two two19"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([32,33,35,36], 8, value)" class="four four19"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([20], 35, value)" class=" black" id="a20">20</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([25,26], 17, value)" class="twoVert twoVert18"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([16,19], 17, value)" class="two two18"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([28,29,31,32], 8, value)" class="four four18"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([17], 35, value)" class=" black" id="a17">17
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([28,29], 17, value)" class="twoVert twoVert20"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([20,23], 17, value)" class="two two20"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([31,32,34,35], 8, value)" class="four four20"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([23], 35, value)" class=" red" id="a23">23</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([29,30], 17, value)" class="twoVert twoVert19"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([21,24], 17, value)" class="two two19"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([32,33,35,36], 8, value)" class="four four19"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([20], 35, value)" class=" black" id="a20">20
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([32,33], 17, value)" class="twoVert twoVert21"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([19,22], 17, value)" class="two two21"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([5,6,8,9], 8, value)" class="four four21"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([26], 35, value)" class=" black" id="a26">26</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([28,29], 17, value)" class="twoVert twoVert20"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([20,23], 17, value)" class="two two20"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([31,32,34,35], 8, value)" class="four four20"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([23], 35, value)" class=" red" id="a23">23
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([32,31], 17, value)" class="twoVert twoVert22"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([24,27], 17, value)" class="two two22"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([5,6,8,9], 8, value)" class="four four22"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([29], 35, value)" class=" black" id="a29">29</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([32,33], 17, value)" class="twoVert twoVert21"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([19,22], 17, value)" class="two two21"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([5,6,8,9], 8, value)" class="four four21"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([26], 35, value)" class=" black" id="a26">26
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([35,36], 17, value)" class="twoVert twoVert23"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([23,26], 17, value)" class="two two23"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([32], 35, value)" class=" red" id="a32">32</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([32,31], 17, value)" class="twoVert twoVert22"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([24,27], 17, value)" class="two two22"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([5,6,8,9], 8, value)" class="four four22"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([29], 35, value)" class=" black" id="a29">29
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([34,35], 17, value)" class="twoVert twoVert24"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([22,25], 17, value)" class="two two24"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([35], 35, value)" class=" black" id="a35">35</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([35,36], 17, value)" class="twoVert twoVert23"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([23,26], 17, value)" class="two two23"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([32], 35, value)" class=" red" id="a32">32
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([1,2,3], 11, value)" class="three three1"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([27,30], 17, value)" class="two two25"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([1], 35, value)" class=" red" id="a1">1</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([34,35], 17, value)" class="twoVert twoVert24"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([22,25], 17, value)" class="two two24"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([35], 35, value)" class=" black" id="a35">35
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([4,5,6], 11, value)" class="three three2"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([26,29], 17, value)" class="two two26"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([4], 35, value)" class=" black" id="a4">4</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([1,2,3], 11, value)" class="three three1"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([27,30], 17, value)" class="two two25"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([1], 35, value)" class=" red" id="a1">1
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([7,8,9], 11, value)" class="three three3"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([25,28], 17, value)" class="two two27"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([7], 35, value)" class=" red" id="a7">7</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([4,5,6], 11, value)" class="three three2"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([26,29], 17, value)" class="two two26"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([4], 35, value)" class=" black" id="a4">4
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([10,11,12], 11, value)" class="three three4"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([30,33], 17, value)" class="two two28"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([10], 35, value)" class=" black" id="a10">10</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([7,8,9], 11, value)" class="three three3"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([25,28], 17, value)" class="two two27"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([7], 35, value)" class=" red" id="a7">7
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([13,14,15], 11, value)" class="three three5"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([29,32], 17, value)" class="two two29"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([13], 35, value)" class=" black" id="a13">13</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([10,11,12], 11, value)" class="three three4"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([30,33], 17, value)" class="two two28"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([10], 35, value)" class=" black" id="a10">10
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([16,17,18], 11, value)" class="three three6"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([28,31], 17, value)" class="two two30"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([16], 35, value)" class=" red" id="a16">16</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([13,14,15], 11, value)" class="three three5"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([29,32], 17, value)" class="two two29"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([13], 35, value)" class=" black" id="a13">13
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([19,20,21], 11, value)" class="three three7"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([33,36], 17, value)" class="two two31"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([19], 35, value)" class=" red" id="a19">19</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([16,17,18], 11, value)" class="three three6"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([28,31], 17, value)" class="two two30"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([16], 35, value)" class=" red" id="a16">16
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([22,23,24], 11, value)" class="three three8"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([32,35], 17, value)" class="two two32"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([22], 35, value)" class=" black" id="a22">22</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([19,20,21], 11, value)" class="three three7"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([33,36], 17, value)" class="two two31"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([19], 35, value)" class=" red" id="a19">19
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([25,26,27], 11, value)" class="three three9"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([31,34], 17, value)" class="two two33"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([25], 35, value)" class=" red" id="a25">25</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([22,23,24], 11, value)" class="three three8"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([32,35], 17, value)" class="two two32"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([22], 35, value)" class=" black" id="a22">22
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([28,29,30], 11, value)" class="three three10"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([28], 35, value)" class=" black" id="a28">28</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([25,26,27], 11, value)" class="three three9"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([31,34], 17, value)" class="two two33"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([25], 35, value)" class=" red" id="a25">25
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([31,32,33], 11, value)" class="three three11"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([31], 35, value)" class=" black" id="a31">31</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([28,29,30], 11, value)" class="three three10"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([28], 35, value)" class=" black" id="a28">28
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([34,35,36], 11, value)" class="three three12"></app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick([34], 35, value)" class=" red" id="a34">34</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([31,32,33], 11, value)" class="three three11"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([31], 35, value)" class=" black" id="a31">31
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(row1, 2, value)" id="row1">2 to 1</app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(row2, 2, value)" id="row2">2 to 1</app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(row3, 2, value)" id="row3">2 to 1</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([34,35,36], 11, value)" class="three three12"></app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick([34], 35, value)" class=" red" id="a34">34
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(column1, 2, value)" id="column1">1st 12</app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(column2, 2, value)" id="column2">2nd 12</app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(column3, 2, value)" id="column3">3rd 12</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(row1, 2, value)" id="row1">2 to 1
+      </app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(row2, 2, value)" id="row2">2 to 1
+      </app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(row3, 2, value)" id="row3">2 to 1
+      </app-value-button>
 
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(outBet1, 1, value)" id="outBet1">1 - 18</app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(evenBet, 1, value)" id="outBet2">EVEN</app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(red, 1, value)" class=" red" id="outBet3">RED</app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(black, 1, value)" class=" black" id="outBet4">BLACK</app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(oddBet, 1, value)" id="outBet5">ODD</app-value-button>
-    <app-value-button [value]="value" [events]="resetSubject.asObservable()" [enoughMoney]="enoughMoney" (onClick)="onclick(outBet2, 1, value)" id="outBet6">19 - 36</app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(column1, 2, value)" id="column1">1st 12
+      </app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(column2, 2, value)" id="column2">2nd 12
+      </app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(column3, 2, value)" id="column3">3rd 12
+      </app-value-button>
+
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(outBet1, 1, value)" id="outBet1">1 - 18
+      </app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(evenBet, 1, value)" id="outBet2">EVEN
+      </app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(red, 1, value)" class=" red" id="outBet3">RED
+      </app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(black, 1, value)" class=" black" id="outBet4">BLACK
+      </app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(oddBet, 1, value)" id="outBet5">ODD
+      </app-value-button>
+      <app-value-button [value]="value" [events]="resetSubject.asObservable()" [canPlace]="canPlace"
+                        (onClick)="onclick(outBet2, 1, value)" id="outBet6">19 - 36
+      </app-value-button>
+    </div>
   </div>
 
-  <div id="button">
-    <button id="finish" (reset)="reset()" (click)="won()">SPIN</button>
+  <div id="mitte">
+    <div id="payOut">
+      <table id="mainH">
+        <tr>Auszahlung</tr>
+      </table>
+
+      <div id="flex1">
+        <table id="secondH1">
+          <tr>INNENWETTEN</tr>
+        </table>
+        <table id="secondH2">
+          <tr>AUSSENWETTEN</tr>
+        </table>
+      </div>
+
+      <div id="flex2">
+        <table id="thirdH1">
+          <tr>
+            <th>Wette</th>
+            <th>Auszahlungen</th>
+          </tr>
+
+          <tr>
+            <td>Einzelne Zahl / Plein</td>
+            <td>35:1</td>
+          </tr>
+
+          <tr>
+            <td>Benachbarte Zahlen / Cheval</td>
+            <td>17:1</td>
+          </tr>
+
+          <tr>
+            <td>Eine Querreihe / Transversale pleine</td>
+            <td>11:1</td>
+          </tr>
+
+          <tr>
+            <td>Vier Nachbarn / Carre</td>
+            <td>8:1</td>
+          </tr>
+
+          <tr>
+            <td>Die ersten Vier / Les Quatre Premiers</td>
+            <td>8:1</td>
+          </tr>
+
+          <tr>
+            <td>Zwei Querreihen / Transversale Simple</td>
+            <td>5:1</td>
+          </tr>
+
+        </table>
+        <table id="thirdH2">
+          <tr>
+            <th>Wette</th>
+            <th>Auszahlungen</th>
+          </tr>
+
+          <tr>
+            <td>Dutzende / Douzaines</td>
+            <td>2:1</td>
+          </tr>
+
+          <tr>
+            <td>Kolonnen / Colonnes</td>
+            <td>2:1</td>
+          </tr>
+
+          <tr>
+            <td>Schwarz und Rot / Noir und Rouge</td>
+            <td>1:1</td>
+          </tr>
+
+          <tr>
+            <td>Gerade oder Ungerade / Pair und Impair</td>
+            <td>1:1</td>
+          </tr>
+
+          <tr>
+            <td>Niedriege Nummern / Manque</td>
+            <td>1:1</td>
+          </tr>
+
+          <tr>
+            <td>Hohe Nummern / Passe</td>
+            <td>1:1</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="menu">
+      <h2>Wählen Sie einen Betrag aus:</h2>
+
+      <div id="jetons">
+        <button [class.clicked]="value === 1" (click)="value = 1" class="jeton" id="jeton1"><img
+          src="/assets/images/j1.png" alt=""></button>
+        <button [class.clicked]="value === 5" (click)="value = 5" class="jeton" id="jeton5"><img
+          src="/assets/images/j5.png" alt=""></button>
+        <button [class.clicked]="value === 10" (click)="value = 10" class="jeton" id="jeton10"><img
+          src="/assets/images/j10.png" alt=""></button>
+        <button [class.clicked]="value === 25" (click)="value = 25" class="jeton" id="jeton25"><img
+          src="/assets/images/j25.png" alt=""></button>
+        <button [class.clicked]="value === 100" (click)="value = 100" class="jeton" id="jeton100"><img
+          src="/assets/images/j100.png" alt=""></button>
+        <button [class.clicked]="value === 500" (click)="value = 500" class="jeton" id="jeton500"><img
+          src="/assets/images/j500.png" alt=""></button>
+        <button [class.clicked]="value === 1000" (click)="value = 1000" class="jeton" id="jeton1000"><img
+          src="/assets/images/j1000.png" alt=""></button>
+      </div>
+
+      <div id="guthaben">Aktuelles Guthaben: {{newMoney}}€</div>
+
+      <div id="list" *ngIf="sum != 0">
+        <span class="center" *ngIf="sum > 0; else anders">+{{sum}}€</span>
+        <ng-template class="center" #anders><span>{{sum}}€</span></ng-template>
+      </div>
+    </div>
+
   </div>
 
-  <h2>Wählen Sie einen Betrag aus:</h2>
-  <div id="jetons">
-    <button [class.clicked]="value === 1" (click)="value = 1" class="jeton" id="jeton1"><img src="/assets/images/00.png" alt=""></button>
-    <button [class.clicked]="value === 5" (click)="value = 5" class="jeton" id="jeton5"><img src="/assets/images/20.png" alt=""></button>
-    <button [class.clicked]="value === 10" (click)="value = 10" class="jeton" id="jeton10"><img src="/assets/images/01.png" alt=""></button>
-    <button [class.clicked]="value === 25" (click)="value = 25" class="jeton" id="jeton25"><img src="/assets/images/11.png" alt=""></button>
-    <button [class.clicked]="value === 100" (click)="value = 100" class="jeton" id="jeton100"><img src="/assets/images/21.png" alt=""></button>
-    <button [class.clicked]="value === 500" (click)="value = 500" class="jeton" id="jeton500"><img src="/assets/images/02.png" alt=""></button>
-    <button [class.clicked]="value === 1000" (click)="value = 1000" class="jeton" id="jeton1000"><img src="/assets/images/12.png" alt=""></button>
-  </div>
-
-  <div id="guthaben">Aktuelles Guthaben: {{newMoney}}</div>
 </div>

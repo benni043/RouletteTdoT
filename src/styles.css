@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.six img, .four img, .threeExtra img, .three img, .two img, .twoVert img, .twoExtra img {
+  transform: scale(2);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Eina01, sans-serif;
+
+
+  background-color: #00703c;
+}

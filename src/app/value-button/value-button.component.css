@@ -1,9 +1,13 @@
 img {
-  width: 70px;
+  width: 50px;
 }
 
 span {
   position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 div {
@@ -12,4 +16,6 @@ div {
   align-items: center;
 
   height: 100%;
+
+  padding: 0 10px 0 10px;
 }
