@@ -24,7 +24,7 @@ export class AppComponent {
   red: number[] = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
   black: number[] = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35];
 
-  payout: { betList: number[], payoutFactor: number, use: number }[] = [];
+  payout: { betList: number[], payoutFactor: number, use: number, fieldName: string }[] = [];
 
   canPlace = () => {
     return (this.newMoney >= this.value && !this.running);
@@ -32,26 +32,40 @@ export class AppComponent {
 
   running: boolean = false;
 
-  onclick(betList: number[], payoutFactor: number, use: number): void {
+  onclick(betList: number[], payoutFactor: number, use: number, fieldName: string): void {
     this.newMoney -= use;
-    this.payout.push({betList: betList, payoutFactor: payoutFactor, use: use});
+
+    this.payout.push({betList: betList, payoutFactor: payoutFactor, use: use, fieldName: fieldName});
   }
 
   newMoney: number = 1000;
   value: number = 1;
 
   sum: number = 0;
+  ergebnis: { className: string, posOrNeg: string, value: number, betSum: number}[] = [];
+
 
   won(winNum: number): void {
     this.sum = 0;
+    this.ergebnis = [];
 
     for (let payoutElement of this.payout) {
-
       if (payoutElement.betList.includes(winNum)) {
         this.newMoney += payoutElement.use * (payoutElement.payoutFactor + 1);
-        this.sum += payoutElement.use * (payoutElement.payoutFactor + 1);
+
+        this.ergebnis.push({
+          className: payoutElement.fieldName,
+          posOrNeg: "+",
+          value: payoutElement.use * (payoutElement.payoutFactor + 1),
+          betSum: payoutElement.use
+        });
       } else {
-        this.sum -= payoutElement.use;
+        this.ergebnis.push({
+          className: payoutElement.fieldName,
+          posOrNeg: "-",
+          value: payoutElement.use,
+          betSum: payoutElement.use
+        });
       }
 
     }
