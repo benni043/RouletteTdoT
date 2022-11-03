@@ -50,14 +50,16 @@ export class WheelComponent  {
 
       this.ballTrack.nativeElement.style.cssText = "transform: rotate(-" + degree + "deg);";
 
-      //tell main component witch number had won
-      this.winNum.emit(winningNum);
     }, 9000);
 
     setTimeout(() => {
       if(this.wheel == undefined || this.ballTrack == undefined) return;
 
       this.wheel.nativeElement.style.cssText = "";
+
+
+      //tell main component witch number had won
+      this.winNum.emit(winningNum);
     }, 10000);
   }
 

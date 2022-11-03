@@ -21,7 +21,7 @@
 }
 
 .two, .twoVert, .twoExtra, .three, .threeExtra, .four, .six {
-  outline: none !important;
+  /*outline: none !important;*/
 }
 
 .red {
@@ -584,10 +584,12 @@
   justify-content: center;
 
   padding: 5px;
+
 }
 
 #uebersicht {
   text-align: center;
+
 }
 
 .left {
@@ -618,14 +620,16 @@ img {
 
 h2 {
   text-align: center;
-  margin: 10px;
+  margin: 40px;
+
+  font-size: 40px;
 }
 
 #flex { /*to center betfield and wheel */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding: 20px;
+  padding: 40px;
 
   border: none;
   box-shadow: 10px 10px 30px 0 rgba(0,0,0,0.75);
@@ -635,7 +639,7 @@ h2 {
 #guthaben {
   font-size: 30px;
   text-align: right;
-  padding: 10px;
+  margin: 40px;
 }
 
 #finish {
@@ -657,18 +661,18 @@ tr, th, td {
 }
 
 #mainH {
-  width: 600px;
-  font-size: 30px;
+  width: 800px;
+  font-size: 40px;
 }
 
 #flex1, #flex2 {
   display: flex;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 #secondH1, #secondH2, #thirdH1, #thirdH2 {
-  width: 300px;
-  font-size: 14px;
+  width: 400px;
+  font-size: 20px;
 }
 
 #payOut {
@@ -696,7 +700,7 @@ tr, th, td {
 
 #mitte {
   display: flex;
-  margin-top: 50px;
+  margin-top: 90px;
 
   justify-content: space-around;
 }

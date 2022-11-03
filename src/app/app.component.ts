@@ -77,11 +77,12 @@ export class AppComponent {
 
   reset(): void {
     this.value = 1;
-    this.running = false;
 
     setTimeout(() => {
       this.resetSubject.next();
       this.payout = [];
+      this.running = false;
+
     }, 10000);
   }
 }
